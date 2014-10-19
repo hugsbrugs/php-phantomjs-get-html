@@ -13,7 +13,7 @@ This very very simple piece of code is inspired from <a href="https://github.com
 </ul>
 
 <h1>Real world usage</h1>
-<h2>Code something similar to this where you handle URLs server side :</h2>
+<h4>1. Code something similar to this where you handle URLs server side :</h4>
 <pre><code>
     if( strpos($Uri, "_escaped_fragment_") !== FALSE )
     {
