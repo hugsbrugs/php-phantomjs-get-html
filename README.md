@@ -15,24 +15,23 @@ This very very simple piece of code is inspired from <a href="https://github.com
 <h1>Real world usage</h1>
 <h2>Code something similar to this where you handle URLs server side :</h2>
 <pre><code>
-if( strpos($Uri, "_escaped_fragment_") !== FALSE ){
+    if( strpos($Uri, "_escaped_fragment_") !== FALSE )
+    {
 
-error_log("GOOGLE BOT AJAX CRAWL : ".$Uri);
+        # REMOVE "?_escaped_fragment_=" FROM URI
+        $Uri = str_replace("?_escaped_fragment_=", "", $Uri);
 
-# REMOVE "?_escaped_fragment_=" FROM URI
-$Uri = str_replace("?_escaped_fragment_=", "", $Uri);
+        # INCLUDE 
+        include_once "get_code_source.php";
 
-# INCLUDE 
-include_once "get_code_source.php";
+        # DO THE MAGIC
+        $Html = get_code_source($url);
 
-# DO THE MAGIC
-$Html = get_code_source($url);
+        # DISPLAY PAGE 
+        echo $Html;
 
-# DISPLAY PAGE 
-echo $Html;
-
-exit();
-}
+        exit();
+    }
 </code></pre><br>
 Go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google Webmaster Tools</a>, in the left menu, go to crawl -> Fetch as Google -> Fill in an ajax built URL and click Fetch and render button.
 
