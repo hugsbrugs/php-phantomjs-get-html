@@ -12,8 +12,8 @@ This very very simple piece of code is inspired from <a href="https://github.com
     <li>Open your browser to index.php and test it with url of your choice</li>
 </ul>
 
-<h1>Real world usage</h1>
-<h4>1. Code something similar to this where you handle URLs server side :</h4>
+<h1>Real World Usage</h1>
+<h5>1. Code something similar to this where you handle URLs server side :</h5>
 <pre><code>
     if( strpos($Uri, "_escaped_fragment_") !== FALSE )
     {
@@ -33,7 +33,10 @@ This very very simple piece of code is inspired from <a href="https://github.com
         exit();
     }
 </code></pre><br>
-Go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google Webmaster Tools</a>, in the left menu, go to crawl -> Fetch as Google -> Fill in an ajax built URL and click Fetch and render button.
+
+<h5>Go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google Webmaster Tools</a></h5>
+In the left menu, go to crawl -> Fetch as Google -> Fill in an ajax built URL and click Fetch and render button.<br>
+Then click in table on previously submited url and go to Fetching tab to see what Google sees as your page's code source<br>
 
 <h1>Similar programs to achieve ajax SEO</h1>
 <ul>
