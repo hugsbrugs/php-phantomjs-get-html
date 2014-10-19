@@ -13,8 +13,8 @@ This very very simple piece of code is inspired from <a href="https://github.com
 </ul>
 
 <h1>Real world usage</h1>
-Code something similar to this where you handle URLs server side :<br>
-<code>
+<h2>Code something similar to this where you handle URLs server side :</h2>
+<pre><code>
 if( strpos($Uri, "_escaped_fragment_") !== FALSE ){
 
 error_log("GOOGLE BOT AJAX CRAWL : ".$Uri);
@@ -33,7 +33,7 @@ echo $Html;
 
 exit();
 }
-</code>
+</code></pre><br>
 Go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google Webmaster Tools</a>, in the left menu, go to crawl -> Fetch as Google -> Fill in an ajax built URL and click Fetch and render button.
 
 <h1>Similar programs to achieve ajax SEO</h1>
