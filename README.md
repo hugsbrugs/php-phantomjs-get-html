@@ -39,6 +39,11 @@ In the left menu, go to crawl -> Fetch as Google -> Fill in an ajax built URL an
 Then click in table on previously submited url and go to Fetching tab to see what Google sees as your page's code source<br>
 Finaly Google should start indexing your pages ! HOURA ;)
 
+<h1>Troubleshooting</h1>
+You might experience problems on some shared hosting in order to make Phantomjs works.<br>
+Contact your hosting provider to know if you can run it<br>
+If somme people achieve to make it work on OVH shared hosting, please fell free to share your workaround !
+
 <h1>Similar programs to achieve ajax SEO</h1>
 <ul>
     <li><a href="http://htmlunit.sourceforge.net" target="_blank">htmlunit.sourceforge.net</a></li>

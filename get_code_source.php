@@ -36,6 +36,9 @@ function get_code_source($url)
             $bin_files = $here . 'bin' . DIRECTORY_SEPARATOR;
             $jobs = $here . 'jobs' . DIRECTORY_SEPARATOR;
 
+            # Change Url to Filename
+            $file_name = sanitize($url).".html";
+
             # Check existence or create jobs directory
             if (!is_dir($jobs))
             {
@@ -62,8 +65,8 @@ function get_code_source($url)
                 page.settings.userAgent = 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:16.0) Gecko/20120815 Firefox/16.0';
                 var fs = require('fs');
                 page.open('{$url}', function () {
-                    //fs.write('{$url}.html', page.content, 'w');
-                    fs.write('coucou.html', page.content, 'w');
+                    fs.write('{$file_name}', page.content, 'w');
+                    //fs.write('coucou.html', page.content, 'w');
                     //console.log(page.content);
                     phantom.exit();
                 });
@@ -85,13 +88,33 @@ function get_code_source($url)
             exec($escaped_command);
 
             # Retrieve url code source 
-            $html_content = file_get_contents($here."coucou.html");
+            $html_content = file_get_contents($here.$file_name);
 
-            # Delete file
-            
+            # Delete html file (or not ... depending on what you want to do)
+            unlink($here.$file_name);
+
+            # Delete job file
+            unlink($job_file);
+
             # Delete job directory
+            rmdir($jobs);
         }
     }
 
     return $html_content;
+}
+
+function sanitize($string, $force_lowercase = true, $anal = false)
+{
+    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+                   "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+                   "â€”", "â€“", ",", "<", ".", ">", "/", "?");
+    $clean = trim(str_replace($strip, "", strip_tags($string)));
+    $clean = preg_replace('/\s+/', "-", $clean);
+    $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean ;
+    return ($force_lowercase) ?
+        (function_exists('mb_strtolower')) ?
+            mb_strtolower($clean, 'UTF-8') :
+            strtolower($clean) :
+        $clean;
 }
