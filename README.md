@@ -7,9 +7,9 @@ This very very simple piece of code is inspired from <a href="https://github.com
 <h1>Test Usage</h1>
 <ul>
     <li>Upload to your webserver (be carefull that phantomjs in bin folder if for linux 64 bits, replace if needed with : <a href="http://phantomjs.org/download.html" target="_blank">http://phantomjs.org/download.html</a> )</li>
-    <li>Make the bin executable chmod +x /var/www/html/screen/bin/phantomjs</li>
-    <li>Make your folder writable</li>
-    <li>Open your browser to index.php</li>
+    <li>Make the bin executable chmod +x /YOUR_PATH/bin/phantomjs</li>
+    <li>Make your folder writable (it creates jobs folder on the fly)</li>
+    <li>Open your browser to index.php and test it with url of your choice</li>
 </ul>
 
 <h1>Real world usage</h1>
